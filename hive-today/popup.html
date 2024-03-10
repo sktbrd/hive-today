@@ -1,58 +1,90 @@
-
 <!doctype html>
 <html>
+
 <head>
     <title>HIVE Today</title>
     <script src="popup.js"></script>
     <script src="background.js"></script>
     <script type="text/javascript" src="widget.js"></script>
-</head>
-<body class="dark">
+    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script>
     <style>
-        body {background-color: #1D2330;
-              overflow: hidden;
-              margin: 0;
-              height: 100%;
-        }
-        #numero{
-            height: 32px;
-            font-size: 16px;
-            background-image: url(images/icon128.png);
-            background-size: 32px;
-            background-position:right;
-            background-repeat: no-repeat;
-            margin-left: 25px;
+        body {
+            background-color: #1D2330;
+            overflow: hidden;
+            margin: 0;
+            height: 100%;
         }
 
-        iframe {
-            overflow: hidden;
+        #numero {
+            height: 40px;
+            font-size: 16px;
+            background-image: url(images/icon128.png);
+            background-size: 24px 24px;
+            background-position: 10px center;
+            background-repeat: no-repeat;
+            padding-left: 44px;
+            border: 2px solid #555;
+            border-radius: 20px;
+            margin-left: 25px;
+            min-width: 280px;
+            color: #DDD;
+            background-color: #29303b;
+            outline: none;
         }
+
+        #numero:focus {
+            border-color: #008CBA;
+        }
+
         .button {
-            border: black;
+            border: none;
             color: white;
-            padding: 8px 16px;
+            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
             margin: 4px 2px;
-            cursor: pointer;}
-        .button {background-color: #008CBA;} /* Blue */
-        .button:hover {background-color: #4CAF50; color: white;}
-        .boxed {font-size: 20px;
-            color: white;
+            cursor: pointer;
+            background-color: #008CBA;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #4CAF50;
+        }
+
+        .boxed,
+        .result,
+
+        .result {
+            font-size: 20px;
+        }
+
+        .skatehiveurl {
+            font-size: 16px;
+            color: rgb(0, 0, 0);
             text-decoration-color: aliceblue;
+            display: inline-block;
+            text-decoration: none;
         }
     </style>
+</head>
 
-    
-    <div id="coinmarketcap-widget-coin-price-block" coins="5370,5375,7221" currency="USD" theme="dark" transparent="false" show-symbol-logo="true"></div>
-    <input id="numero" type="text" placeholder="How much you got?" >
-    <button id ="btn" class="button">Convert</button>
-    <b> <output class="boxed" id="result" ></output></b>
-    <p></p>
-    <a href="https://odysee.com/$/invite/@code:a" target="_blank">My other Codes</a>
-    <a href="https://peakd.com/c/hive-173115/created" target="_blank">Skatehive</a>
-    
+<body class="dark">
+    <a class="skatehiveurl" href="https://skatehive.app" target="_blank">Made by Skatehive</a>
+
+    <div id="coinmarketcap-widget-coin-price-block" coins="5370,5375,1" currency="USD" theme="dark" transparent="true"
+        show-symbol-logo="true"></div>
+
+    <div style="display: flex; justify-content: center; margin: 20px; align-items: center;">
+        <input id="numero" type="text" placeholder="How much you got?">
+        <button id="btn" class="button">Convert</button>
+        <b><output class="result" id="result"></output></b>
+    </div>
+
+
 </body>
+
 </html>
